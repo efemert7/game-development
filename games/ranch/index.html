@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meadowbrook Ranch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Three.js renderer canvas is inserted here -->
+  <div id="game-container"></div>
+
+  <!-- ===== In-game HUD ===== -->
+  <div id="hud" class="hidden">
+    <div id="stats">
+      <div class="stat"><span class="icon">🪙</span> <span id="coins">0</span></div>
+      <div class="stat">Day <span id="day">1</span> · <span id="clock">07:00</span></div>
+      <div class="stat energy">
+        <span class="icon">⚡</span>
+        <div id="energy-bar"><div id="energy-fill"></div></div>
+        <span id="energy-text">100</span>
+      </div>
+    </div>
+    <div id="inventory-panel"></div>
+    <div id="crosshair"></div>
+    <div id="prompt"></div>
+    <div id="click-hint" class="hidden">Click to capture the mouse</div>
+    <div id="toasts"></div>
+    <div id="hotbar"></div>
+  </div>
+
+  <!-- ===== Start screen ===== -->
+  <div id="start-screen" class="overlay">
+    <div class="panel">
+      <h1>Meadowbrook Ranch</h1>
+      <p class="subtitle">Grow crops, raise animals, build your farm.</p>
+      <div id="load-error" class="error hidden">
+        Three.js could not be loaded from the CDN. Check your internet connection and reload.
+      </div>
+      <div class="buttons">
+        <button id="btn-continue" disabled>Continue</button>
+        <button id="btn-new">New Game</button>
+      </div>
+      <div class="controls-help"></div>
+    </div>
+  </div>
+
+  <!-- ===== Pause menu ===== -->
+  <div id="pause-menu" class="overlay hidden">
+    <div class="panel">
+      <h2>Paused</h2>
+      <div class="buttons vertical">
+        <button id="btn-resume">Resume</button>
+        <button id="btn-save">Save Game</button>
+        <button id="btn-controls">Controls</button>
+        <button id="btn-restart" class="danger">New Game</button>
+      </div>
+      <div id="pause-controls" class="controls-help hidden"></div>
+    </div>
+  </div>
+
+  <!-- ===== Shop menu ===== -->
+  <div id="shop-menu" class="overlay hidden">
+    <div class="panel wide">
+      <h2>Ranch Supply Shop</h2>
+      <p class="subtitle">Coins: <span class="menu-coins">0</span></p>
+      <div id="shop-list" class="item-list"></div>
+      <div class="buttons"><button class="btn-close">Close (Esc)</button></div>
+    </div>
+  </div>
+
+  <!-- ===== Sell menu ===== -->
+  <div id="sell-menu" class="overlay hidden">
+    <div class="panel wide">
+      <h2>Sell Box</h2>
+      <p class="subtitle">Coins: <span class="menu-coins">0</span></p>
+      <div id="sell-list" class="item-list"></div>
+      <div class="buttons">
+        <button id="btn-sell-all">Sell Everything</button>
+        <button class="btn-close">Close (Esc)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Black overlay used for the sleep transition -->
+  <div id="fade"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="game.js"></script>
+</body>
+</html>
